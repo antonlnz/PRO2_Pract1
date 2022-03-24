@@ -106,6 +106,7 @@ void processCommand(char *commandNumber, char command, char *param1, char *param
     switch (command) {
         case 'N':
             printf("N: product %s seller %s category %s price %s\n", param1, param2, param3, param4);
+//atoi, atof
             new(L, param1, param2, param3, param4);
             break;
         case 'S':
