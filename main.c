@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "types.h"
+#include <stdlib.h>
 
 #define MAX_BUFFER 255
 
@@ -68,41 +69,43 @@ void stats (tList L) {
         printf("Painting  %8d %8.2f %8.2f\n", countPainting, sumPainting, avgPainting); //Lo mismo que en la de arriba pero para otra categoria
     }
 }
-
-void delete (char *param1, tList *L) {
-    if (findItem(param1, *L)!=LNULL) {
+// findItem recibe un string y getItem y DeleteAtPosition una variable tipo tPosL
+void delete (tPosL position, tList *L) {
+    if (findItem(position, *L)!=LNULL) {
         printf("+ Error: Delete not possible");
     } else {
-        tItemL item = getItem(*param1, *L);
-        deleteAtPosition(*param1,L);
+        tItemL item = getItem(position, *L);
+        deleteAtPosition(position, L);
         if (item.productCategory == book) {
-            printf("Product %s seller %s category book price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter);
+            printf("* Delete: product %s seller %s category book price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter);
         } else {
-            printf("Product %s seller %s category painting price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter);
+            printf("* Delete: product %s seller %s category painting price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter);
         }
     }
 }
 
-void bid (char *param1, *param2, *param3, *param4, tList *L) {
-    tItemL item = getItem(*param1, *L);
-    tProductPrice puja;
-    sscanf(*param3, "%f", puja);
-    if ((findItem(param1, *L)==LNULL) || (item.seller == param2) || (strcmp (item.productPrice, param3)>0))  { //REVISAR FUNCION FINDITEM DE LA DINAMICA
-        printf("+ Error: Bid not possible");
+void bid (tPosL position, char *param2, float preciopuja, tList *L) { // cabecera de la funcion bid que recibe: posicion del elemento, pujador, precio de la puja, la lista a la que accede
+    tItemL item = getItem(position, *L); // buscamos el item a modificar en la posicion dada (devuelve una copia del item)
+    if ((findItem(position, *L)==LNULL) || (strcmp(item.seller, param2) == 0) || (item.productPrice > preciopuja))  { // realiza la siguiente accion en caso de que no existiese ningún producto con ese identificador, o el vendedor del producto es el
+        // mismo que el pujador, o el precio de la puja no es superior al precio actual
+        printf("+ Error: Bid not possible"); // imprime el mensaje de error
     } else {
-        item.productPrice = param4;
-        item.bidCounter = item.bidCounter + 1;
-        if (item.productCategory == book) {
-            printf("* Bid: product %s seller %s category book price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter);
-        } else {
-            printf("* Bid: product %s seller %s category painting price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter);
+        item.productPrice = preciopuja; // actualizamos el precio del producto
+        item.bidCounter = item.bidCounter + 1; // ?????????????
+        if (item.productCategory == book) { // realiza la siguiente accion si la categoria es book
+            printf("* Bid: product %s seller %s category book price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter); // imprime el mensaje con categoria "book"
+        } else { // realiza esta otra accion si la categoria es painting
+            printf("* Bid: product %s seller %s category painting price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter); // imprime el mensaje con categoria "painting"
         }
+        updateItem(item, position,L); // aplicamos los cambios a la lista
     }
 }
 
 void processCommand(char *commandNumber, char command, char *param1, char *param2, char *param3, char *param4, tList *L) {
     printf("********************\n");
     printf("%s ", commandNumber);
+    tPosL position = 0; // creamos una variable tipo tPosL para la posicion
+    sscanf(param1, "tPosL", position); // convertimos param1 (char) a position (tPosL)
     switch (command) {
         case 'N':
             printf("N: product %s seller %s category %s price %s\n", param1, param2, param3, param4);
@@ -115,11 +118,13 @@ void processCommand(char *commandNumber, char command, char *param1, char *param
             break;
         case 'B':
             printf("B: product %s bidder %s price %s\n", param1, param2, param4);
-            bid (param1, param2, param3, param4, L);
+            float preciopuja; // creamos una variable tipo float para el precio
+            preciopuja = atof (param4); // convertimos param4 (char) en un float y lo asignamos a la variable precio
+            bid (position, param2, preciopuja, L); // llamada a la funcion bid
             break;
         case 'D':
             printf("D: product %s\n", param1);
-            delete (param1, L);
+            delete (position, L);
             break;
         default:
 
