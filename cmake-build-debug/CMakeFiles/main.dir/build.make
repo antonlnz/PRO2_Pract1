@@ -55,10 +55,10 @@ RM = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\espanol\CLion\Plantilla-Template\P1
+CMAKE_SOURCE_DIR = "C:\Users\Antón López Nóñez\Documents\GitHub\PRO2_Pract1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\espanol\CLion\Plantilla-Template\P1\cmake-build-debug
+CMAKE_BINARY_DIR = "C:\Users\Antón López Nóñez\Documents\GitHub\PRO2_Pract1\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/main.dir/depend.make
@@ -70,29 +70,29 @@ include CMakeFiles/main.dir/flags.make
 
 CMakeFiles/main.dir/main.c.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/main.c.obj: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\espanol\CLion\Plantilla-Template\P1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main.dir/main.c.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\main.dir\main.c.obj -c C:\espanol\CLion\Plantilla-Template\P1\main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Antón López Nóñez\Documents\GitHub\PRO2_Pract1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main.dir/main.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\main.dir\main.c.obj -c "C:\Users\Antón López Nóñez\Documents\GitHub\PRO2_Pract1\main.c"
 
 CMakeFiles/main.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/main.c.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\espanol\CLion\Plantilla-Template\P1\main.c > CMakeFiles\main.dir\main.c.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Antón López Nóñez\Documents\GitHub\PRO2_Pract1\main.c" > CMakeFiles\main.dir\main.c.i
 
 CMakeFiles/main.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/main.c.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\espanol\CLion\Plantilla-Template\P1\main.c -o CMakeFiles\main.dir\main.c.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Antón López Nóñez\Documents\GitHub\PRO2_Pract1\main.c" -o CMakeFiles\main.dir\main.c.s
 
 CMakeFiles/main.dir/static_list.c.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/static_list.c.obj: ../static_list.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\espanol\CLion\Plantilla-Template\P1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main.dir/static_list.c.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\main.dir\static_list.c.obj -c C:\espanol\CLion\Plantilla-Template\P1\static_list.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Antón López Nóñez\Documents\GitHub\PRO2_Pract1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main.dir/static_list.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\main.dir\static_list.c.obj -c "C:\Users\Antón López Nóñez\Documents\GitHub\PRO2_Pract1\static_list.c"
 
 CMakeFiles/main.dir/static_list.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/static_list.c.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\espanol\CLion\Plantilla-Template\P1\static_list.c > CMakeFiles\main.dir\static_list.c.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Antón López Nóñez\Documents\GitHub\PRO2_Pract1\static_list.c" > CMakeFiles\main.dir\static_list.c.i
 
 CMakeFiles/main.dir/static_list.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/static_list.c.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\espanol\CLion\Plantilla-Template\P1\static_list.c -o CMakeFiles\main.dir\static_list.c.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Antón López Nóñez\Documents\GitHub\PRO2_Pract1\static_list.c" -o CMakeFiles\main.dir\static_list.c.s
 
 # Object files for target main
 main_OBJECTS = \
@@ -108,7 +108,7 @@ main_EXTERNAL_OBJECTS =
 ../bin/main.exe: CMakeFiles/main.dir/linklibs.rsp
 ../bin/main.exe: CMakeFiles/main.dir/objects1.rsp
 ../bin/main.exe: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\espanol\CLion\Plantilla-Template\P1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable ..\bin\main.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Antón López Nóñez\Documents\GitHub\PRO2_Pract1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable ..\bin\main.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\main.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -120,6 +120,6 @@ CMakeFiles/main.dir/clean:
 .PHONY : CMakeFiles/main.dir/clean
 
 CMakeFiles/main.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\espanol\CLion\Plantilla-Template\P1 C:\espanol\CLion\Plantilla-Template\P1 C:\espanol\CLion\Plantilla-Template\P1\cmake-build-debug C:\espanol\CLion\Plantilla-Template\P1\cmake-build-debug C:\espanol\CLion\Plantilla-Template\P1\cmake-build-debug\CMakeFiles\main.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Antón López Nóñez\Documents\GitHub\PRO2_Pract1" "C:\Users\Antón López Nóñez\Documents\GitHub\PRO2_Pract1" "C:\Users\Antón López Nóñez\Documents\GitHub\PRO2_Pract1\cmake-build-debug" "C:\Users\Antón López Nóñez\Documents\GitHub\PRO2_Pract1\cmake-build-debug" "C:\Users\Antón López Nóñez\Documents\GitHub\PRO2_Pract1\cmake-build-debug\CMakeFiles\main.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/main.dir/depend
 

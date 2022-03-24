@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/espanol/CLion/Plantilla-Template/P1/main.c" "C:/espanol/CLion/Plantilla-Template/P1/cmake-build-debug/CMakeFiles/main.dir/main.c.obj"
-  "C:/espanol/CLion/Plantilla-Template/P1/static_list.c" "C:/espanol/CLion/Plantilla-Template/P1/cmake-build-debug/CMakeFiles/main.dir/static_list.c.obj"
+  "C:/Users/Antón López Nóñez/Documents/GitHub/PRO2_Pract1/main.c" "C:/Users/Antón López Nóñez/Documents/GitHub/PRO2_Pract1/cmake-build-debug/CMakeFiles/main.dir/main.c.obj"
+  "C:/Users/Antón López Nóñez/Documents/GitHub/PRO2_Pract1/static_list.c" "C:/Users/Antón López Nóñez/Documents/GitHub/PRO2_Pract1/cmake-build-debug/CMakeFiles/main.dir/static_list.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

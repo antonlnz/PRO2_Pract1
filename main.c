@@ -1,10 +1,10 @@
 /*
  * TITLE: PROGRAMMING II LABS
  * SUBTITLE: Practical 1
- * AUTHOR 1: ***************************** LOGIN 1: **********
- * AUTHOR 2: ***************************** LOGIN 2: **********
- * GROUP: *.*
- * DATE: ** / ** / **
+ * AUTHOR 1: Ruben Seoane Iglesias LOGIN 1: r.seoane.iglesias
+ * AUTHOR 2: Anton Lopez Nunez LOGIN 2: anton.lopez.nunez
+ * GROUP: *2.4*
+ * DATE: 11 / 03 / 2022
  */
 
 #include <stdio.h>

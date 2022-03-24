@@ -1,4 +1,4 @@
-# Install script for directory: C:/espanol/CLion/Plantilla-Template/P1
+# Install script for directory: C:/Users/Antón López Nóñez/Documents/GitHub/PRO2_Pract1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/espanol/CLion/Plantilla-Template/P1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Antón López Nóñez/Documents/GitHub/PRO2_Pract1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
