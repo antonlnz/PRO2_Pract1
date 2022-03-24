@@ -85,6 +85,8 @@ void delete (char *param1, tList *L) {
 
 void bid (char *param1, *param2, *param3, *param4, tList *L) {
     tItemL item = getItem(*param1, *L);
+    tProductPrice puja;
+    sscanf(*param3, "%f", puja);
     if ((findItem(param1, *L)==LNULL) || (item.seller == param2) || (strcmp (item.productPrice, param3)>0))  { //REVISAR FUNCION FINDITEM DE LA DINAMICA
         printf("+ Error: Bid not possible");
     } else {
