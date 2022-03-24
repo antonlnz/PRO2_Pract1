@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/espanol/CLion/Plantilla-Template/P1/dynamic_list.h
+stdlib.h
+-
+stdbool.h
+-
+types.h
+C:/espanol/CLion/Plantilla-Template/P1/types.h
+
+C:/espanol/CLion/Plantilla-Template/P1/static_list.c
+string.h
+-
+static_list.h
+C:/espanol/CLion/Plantilla-Template/P1/static_list.h
+
+C:/espanol/CLion/Plantilla-Template/P1/static_list.h
+stdbool.h
+-
+types.h
+C:/espanol/CLion/Plantilla-Template/P1/types.h
+
+C:/espanol/CLion/Plantilla-Template/P1/test.c
+stdio.h
+-
+string.h
+-
+dynamic_list.h
+C:/espanol/CLion/Plantilla-Template/P1/dynamic_list.h
+static_list.h
+C:/espanol/CLion/Plantilla-Template/P1/static_list.h
+
+C:/espanol/CLion/Plantilla-Template/P1/types.h
+
