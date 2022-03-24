@@ -21,7 +21,7 @@
 #include "static_list.h"
 #endif
 
-void new (char *param1, char *param2, char *param3, char *param4, tList *L) { //Cabecera de la función. Recibe 
+void new (char *param1, char *param2, char *param3, char *param4, tList *L) { //Cabecera de la función. Recibe el identificador del nuevo producto (param1), el vendedor del producto (param2), la categoría (param3) y el precio (param4)
     tItemL d;
 
     if (findItem(param1,*L)!=LNULL) { //Si existe un producto en la lista con ese identificador (param1), no podemos insertar otro
@@ -32,54 +32,55 @@ void new (char *param1, char *param2, char *param3, char *param4, tList *L) { //
         strcpy(d.productId, param1); //Copiamos el valor de param1 en el campo "productId" del struct tItemL d
         if (strcmp(param3, "book")==0) d.productCategory = book; else d.productCategory = painting; //Si param3 es de tipo book,
         //el campo "productCategory" pasa a ser book. Sino, pasa a ser "painting" que es el otro tipo posible
-        sscanf(param4, "%f", &d.productPrice);
+        sscanf(param4, "%f", &d.productPrice); //Pasamos el param4 (char) a float y lo cambiamos en el tItemL d, en el campo del precio
 
         insertItem (d, LNULL, L);//Insertamos el tItemL d con los valores correspondientes en la lista
     }
 }
 
-void stats (tList L) {
-    tPosL i;
+void stats (tList L) { //Cabecera de la función. Solo recibe la lista y no la va a modificar, solo a leerla
+    tPosL i; //Creamos una variable tipo tPosL para recorrer la lista
     int countBook = 0, countPainting = 0; //countBook = contador numero de productos tipo book, countPainting = contador numero de productos tipo painting
-    float avgBook, avgPainting, sumBook = 0, sumPainting = 0;
-    if (isEmptyList(L)) { //Si la LISTA DE USUARIOS está vacia
+    float avgBook, avgPainting, sumBook = 0, sumPainting = 0; //Creamos las variables necesarias para almacenar las operaciones que luego mostraremos
+    //avgBook = precio medio de los productos tipo "book"; avgPainting = precio medio de los productos tipo "painting"; sumBook = suma de todos los precios de los productos tipo "book"; sumPainting = suma de todos los precios de los productos tipo "painting"
+    if (isEmptyList(L)) { //Si la lista está vacia:
         printf("+ Error: Stats not possible\n"); //Imprimimos el mensaje de que la funcion no es realizable
-    } else {
-        for (i = first(L); i!=LNULL; i=next(i,L)) {
-            tItemL item = getItem(i,L);
-            if (item.productCategory == book) {
-                printf("Product %s seller %s category book price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter);
-                countBook = countBook + 1;
-                sumBook = sumBook + item.productPrice;
-            } else {
-                printf("Product %s seller %s category painting price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter);
-                countPainting = countPainting + 1;
-                sumPainting = sumPainting + item.productPrice;
+    } else { //Si no esta vacia:
+        for (i = first(L); i!=LNULL; i=next(i,L)) { //Recorremos la lista, desde el principio hasta el final
+            tItemL item = getItem(i,L); //Cogemos el item i y lo asignamos a la variable "item"
+            if (item.productCategory == book) { //Si la categoria del item es "book":
+                printf("Product %s seller %s category book price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter); //Escribimos sus atributos teniendo en cuenta su tipo
+                countBook = countBook + 1; //Aumentamos el numero de productos tipo "book" en una unidad
+                sumBook = sumBook + item.productPrice; //Sumamos su precio al valor de la variable donde almacenaremos el precio total de todos los productos tipo "book"
+            } else { //Si no es tipo "book" (como solo hay dos categorias, al no ser de tipo "book" nos esta diciendo implicitamente que es de tipo "painting"):
+                printf("Product %s seller %s category painting price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter); //Escribimos sus atributos teniendo en cuenta su tipo
+                countPainting = countPainting + 1; //Aumentamos el numero de productos tipo "painting" en una unidad
+                sumPainting = sumPainting + item.productPrice; //Sumamos su precio al valor de la variable donde almacenaremos el precio total de todos los productos tipo "book"
             }
         }
-        if (countBook == 0) {
-            avgBook = 0;
-        } else avgBook = sumBook / countBook;
-        if (countPainting == 0) {
-            avgPainting = 0;
-        } else avgPainting = sumPainting / countPainting;
-        printf("\n");
-        printf ("Category  Products    Price  Average\n");
-        printf("Book      %8d %8.2f %8.2f\n", countBook, sumBook, avgBook); //En orden: nº de productos que se ofertan de la categoria, la suma de precios de todos los productos de dicha categoría y precio medio
-        printf("Painting  %8d %8.2f %8.2f\n", countPainting, sumPainting, avgPainting); //Lo mismo que en la de arriba pero para otra categoria
+        if (countBook == 0) { //Si el numero de productos tipo "book" es 0:
+            avgBook = 0; //El precio medio es automaticamente = 0; para evitar errores al dividir entre 0
+        } else avgBook = sumBook / countBook; //Si no es 0, el precio medio es igual a la suma de precios entre el numero de productos
+        if (countPainting == 0) { //Si el numero de productos tipo "painting" es 0:
+            avgPainting = 0; //El precio medio es automaticamente = 0; para evitar errores al dividir entre 0
+        } else avgPainting = sumPainting / countPainting; //Si no es 0, el precio medio es igual a la suma de precios entre el numero de productos
+        printf("\n"); //Hacemos un salto de linea para facilitar la legibilidad de la salida por pantalla
+        printf ("Category  Products    Price  Average\n"); //Imprimimos las columnas de la tabla
+        printf("Book      %8d %8.2f %8.2f\n", countBook, sumBook, avgBook); //Imprimimos, en orden: nº de productos que se ofertan de la categoria, la suma de precios de todos los productos de dicha categoría y precio medio
+        printf("Painting  %8d %8.2f %8.2f\n", countPainting, sumPainting, avgPainting); //Lo mismo que en la de arriba pero para la categoria painting
     }
 }
 // findItem recibe un string y getItem y DeleteAtPosition una variable tipo tPosL
-void delete (tPosL position, tList *L) {
-    if (findItem(position, *L)!=LNULL) {
-        printf("+ Error: Delete not possible");
-    } else {
-        tItemL item = getItem(position, *L);
-        deleteAtPosition(position, L);
-        if (item.productCategory == book) {
-            printf("* Delete: product %s seller %s category book price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter);
-        } else {
-            printf("* Delete: product %s seller %s category painting price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter);
+void delete (tPosL position, tList *L) { //Cabecera de la función. Recibe la posicion del item a borrar y la lista donde se encuentra
+    if (findItem(position, *L)!=LNULL) { //Si no encuentra el item:
+        printf("+ Error: Delete not possible"); //Imprime un error conforme la operación no pudo completarse
+    } else { //En el caso de que si lo encuentre:
+        tItemL item = getItem(position, *L); //Lo localizamos para luego poder imprimir sus valores
+        deleteAtPosition(position, L); //Lo eliminamos (la funcion deleteAtPosition tambien se encarga de liberar la memoria)
+        if (item.productCategory == book) { //Si la categoria del producto es "book":
+            printf("* Delete: product %s seller %s category book price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter); //Escribimos sus atributos teniendo en cuenta su categoria
+        } else { //Si su categoria es "painting":
+            printf("* Delete: product %s seller %s category painting price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter); //Escribimos sus atributos teniendo en cuenta su categoria
         }
     }
 }
@@ -108,23 +109,22 @@ void processCommand(char *commandNumber, char command, char *param1, char *param
     sscanf(param1, "tPosL", position); // convertimos param1 (char) a position (tPosL)
     switch (command) {
         case 'N':
-            printf("N: product %s seller %s category %s price %s\n", param1, param2, param3, param4);
-//atoi, atof
-            new(param1, param2, param3, param4, L);
+            printf("N: product %s seller %s category %s price %s\n", param1, param2, param3, param4); //Imprimimos la cabecera de la funcion
+            new(param1, param2, param3, param4, L); //Llamamos a la funcion new, enviandole los parametros que necesita
             break;
         case 'S':
-            printf("S\n");
-            stats(*L);
+            printf("S\n"); //Imprimimos la cabecera de la funcion
+            stats(*L); //Llamamos a la funcion stats, enviandole los parametros que necesita
             break;
         case 'B':
-            printf("B: product %s bidder %s price %s\n", param1, param2, param4);
+            printf("B: product %s bidder %s price %s\n", param1, param2, param4); //Imprimimos la cabecera de la funcion
             float preciopuja; // creamos una variable tipo float para el precio
             preciopuja = atof (param4); // convertimos param4 (char) en un float y lo asignamos a la variable precio
-            bid (position, param2, preciopuja, L); // llamada a la funcion bid
+            bid (position, param2, preciopuja, L); //Llamamos a la funcion bid, enviandole los parametros que necesita
             break;
         case 'D':
-            printf("D: product %s\n", param1);
-            delete (position, L);
+            printf("D: product %s\n", param1); //Imprimimos la cabecera de la funcion
+            delete (position, L); //Llamamos a la funcion delete, enviandole los parametros que necesita
             break;
         default:
 
@@ -163,8 +163,8 @@ void readTasks(char *filename, tList *L) {
 
 int main(int nargs, char **args) {
 
-    tList lista01;
-    createEmptyList(&lista01);
+    tList lista01; //Creamos la variable lista01 de tipo tList
+    createEmptyList(&lista01); //Creamos e inicializamos una lista vacia y la almacenamos en la variable lista01
 
     char *file_name = "new.txt";
 
