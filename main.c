@@ -21,7 +21,7 @@
 #include "static_list.h"
 #endif
 
-void new (tList *L, char *param1, char *param2, char *param3, char *param4) {
+void new (char *param1, char *param2, char *param3, char *param4, tList *L) { //Cabecera de la función. Recibe 
     tItemL d;
 
     if (findItem(param1,*L)!=LNULL) { //Si existe un producto en la lista con ese identificador (param1), no podemos insertar otro
@@ -84,15 +84,15 @@ void delete (tPosL position, tList *L) {
     }
 }
 
-void bid (tPosL position, char *param2, float preciopuja, tList *L) { // cabecera de la funcion bid que recibe: posicion del elemento, pujador, precio de la puja, la lista a la que accede
-    tItemL item = getItem(position, *L); // buscamos el item a modificar en la posicion dada (devuelve una copia del item)
-    if ((findItem(position, *L)==LNULL) || (strcmp(item.seller, param2) == 0) || (item.productPrice > preciopuja))  { // realiza la siguiente accion en caso de que no existiese ningún producto con ese identificador, o el vendedor del producto es el
-        // mismo que el pujador, o el precio de la puja no es superior al precio actual
+void bid (tPosL position, char *param2, float preciopuja, tList *L) { //Cabecera de la funcion bid que recibe: posicion del elemento, pujador, precio de la puja, la lista a la que accede
+    tItemL item = getItem(position, *L); // Buscamos el item a modificar en la posicion dada (devuelve una copia del item)
+    if ((findItem(position, *L)==LNULL) || (strcmp(item.seller, param2) == 0) || (item.productPrice > preciopuja))  { //Si no existiese ningún producto con ese identificador, o el vendedor del producto es el
+        //Mismo que el pujador, o el precio de la puja no es superior al precio actual, entoces:
         printf("+ Error: Bid not possible"); // imprime el mensaje de error
-    } else {
-        item.productPrice = preciopuja; // actualizamos el precio del producto
+    } else { //Si no:
+        item.productPrice = preciopuja; //Actualizamos el precio del producto
         item.bidCounter = item.bidCounter + 1; // ?????????????
-        if (item.productCategory == book) { // realiza la siguiente accion si la categoria es book
+        if (item.productCategory == book) { //Si la categoria es book
             printf("* Bid: product %s seller %s category book price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter); // imprime el mensaje con categoria "book"
         } else { // realiza esta otra accion si la categoria es painting
             printf("* Bid: product %s seller %s category painting price %.2f bids %d\n", item.productId, item.seller, item.productPrice, item.bidCounter); // imprime el mensaje con categoria "painting"
@@ -110,7 +110,7 @@ void processCommand(char *commandNumber, char command, char *param1, char *param
         case 'N':
             printf("N: product %s seller %s category %s price %s\n", param1, param2, param3, param4);
 //atoi, atof
-            new(L, param1, param2, param3, param4);
+            new(param1, param2, param3, param4, L);
             break;
         case 'S':
             printf("S\n");
