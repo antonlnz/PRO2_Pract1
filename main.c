@@ -71,7 +71,7 @@ void stats (tList L) { //Cabecera de la función. Solo recibe la lista y no la v
     }
 }
 // findItem recibe un string y getItem y DeleteAtPosition una variable tipo tPosL
-void delete (tPosL position, tList *L) { //Cabecera de la función. Recibe la posicion del item a borrar y la lista donde se encuentra
+void delete (cahr *position, tList *L) { //Cabecera de la función. Recibe la posicion del item a borrar y la lista donde se encuentra
     if (findItem(position, *L)!=LNULL) { //Si no encuentra el item:
         printf("+ Error: Delete not possible"); //Imprime un error conforme la operación no pudo completarse
     } else { //En el caso de que si lo encuentre:
@@ -85,7 +85,7 @@ void delete (tPosL position, tList *L) { //Cabecera de la función. Recibe la po
     }
 }
 
-void bid (tPosL position, char *param2, float preciopuja, tList *L) { //Cabecera de la funcion bid que recibe: posicion del elemento, pujador, precio de la puja, la lista a la que accede
+void bid (char *position, char *param2, float preciopuja, tList *L) { //Cabecera de la funcion bid que recibe: posicion del elemento, pujador, precio de la puja, la lista a la que accede
     tItemL item = getItem(position, *L); // Buscamos el item a modificar en la posicion dada (devuelve una copia del item)
     if ((findItem(position, *L)==LNULL) || (strcmp(item.seller, param2) == 0) || (item.productPrice > preciopuja))  { //Si no existiese ningún producto con ese identificador, o el vendedor del producto es el
         //Mismo que el pujador, o el precio de la puja no es superior al precio actual, entoces:
@@ -105,8 +105,6 @@ void bid (tPosL position, char *param2, float preciopuja, tList *L) { //Cabecera
 void processCommand(char *commandNumber, char command, char *param1, char *param2, char *param3, char *param4, tList *L) {
     printf("********************\n");
     printf("%s ", commandNumber);
-    tPosL position = 0; // creamos una variable tipo tPosL para la posicion
-    sscanf(param1, "tPosL", position); // convertimos param1 (char) a position (tPosL)
     switch (command) {
         case 'N':
             printf("N: product %s seller %s category %s price %s\n", param1, param2, param3, param4); //Imprimimos la cabecera de la funcion
@@ -120,11 +118,11 @@ void processCommand(char *commandNumber, char command, char *param1, char *param
             printf("B: product %s bidder %s price %s\n", param1, param2, param4); //Imprimimos la cabecera de la funcion
             float preciopuja; // creamos una variable tipo float para el precio
             preciopuja = atof (param4); // convertimos param4 (char) en un float y lo asignamos a la variable precio
-            bid (position, param2, preciopuja, L); //Llamamos a la funcion bid, enviandole los parametros que necesita
+            bid (param1, param2, preciopuja, L); //Llamamos a la funcion bid, enviandole los parametros que necesita
             break;
         case 'D':
             printf("D: product %s\n", param1); //Imprimimos la cabecera de la funcion
-            delete (position, L); //Llamamos a la funcion delete, enviandole los parametros que necesita
+            delete (param1, L); //Llamamos a la funcion delete, enviandole los parametros que necesita
             break;
         default:
 
