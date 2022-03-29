@@ -74,12 +74,11 @@ tPosL findItem  (tProductId d, tList L){ //Cabecera de la funcion. Recibe la y l
     if (L.lastPos == LNULL) //Si la ultima posicion es nula
         return LNULL; //Devolver nulo ()
     else { //Si no es nula
-        for (p=0; p<L.lastPos &&  (strcmp(L.data[p].productId,d)!=0); p++); //Recorrer la lista mientras p sea menor que la ultima posicion y el dato del elemento no coincida con el dado; p=0 equivale a first(L) y p++ equivale a next(p); Se puede poner solo p<L.lastPos porque es implementacion estatica
-            if (strcmp (L.data[p].productId, d)==0) //Si salio del bucle porque encontro el dato
-                return p; //Devolver la posicion donde se encuentra
-            else //Si no salio del bucle porque ya lo encontro (salio porque no lo encontro)
-                return LNULL; //Salio porque llego a lastPos y no lo encontró. Entonces devolvemos nulo
-
+        for (p=0; p<L.lastPos &&  (strcmp(L.data[p].productId,d)!=0); p++);  //Recorrer la lista mientras p sea menor que la ultima posicion y el dato del elemento no coincida con el dado; p=0 equivale a first(L) y p++ equivale a next(p); Se puede poner solo p<L.lastPos porque es implementacion estatica
+        if (strcmp (L.data[p].productId, d)==0) //Si salio del bucle porque encontro el dato
+            return p; //Devolver la posicion donde se encuentra
+        else //Si no salio del bucle porque ya lo encontro (salio porque no lo encontro)
+            return LNULL; //Salio porque llego a lastPos y no lo encontró. Entonces devolvemos nulo
 
     }
 }
