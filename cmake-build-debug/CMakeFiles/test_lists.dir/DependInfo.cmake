@@ -4,27 +4,12 @@ set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
 
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "C"
-  )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/Antón López Nóñez/Documents/GitHub/PRO2_Pract1/static_list.c" "C:/Users/Antón López Nóñez/Documents/GitHub/PRO2_Pract1/cmake-build-debug/CMakeFiles/test_lists.dir/static_list.c.obj"
-  "C:/Users/Antón López Nóñez/Documents/GitHub/PRO2_Pract1/test.c" "C:/Users/Antón López Nóñez/Documents/GitHub/PRO2_Pract1/cmake-build-debug/CMakeFiles/test_lists.dir/test.c.obj"
-  )
-set(CMAKE_C_COMPILER_ID "GNU")
-
-# Preprocessor definitions for this target.
-set(CMAKE_TARGET_DEFINITIONS_C
-  "INPUT_FILE=\"new.txt\""
-  "STATIC_LIST"
-  )
-
-# The include file search paths:
-set(CMAKE_C_TARGET_INCLUDE_PATH
   )
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/Particular/Downloads/Anton/PRO2/PRO2_Pract1-main/static_list.c" "CMakeFiles/test_lists.dir/static_list.c.obj" "gcc" "CMakeFiles/test_lists.dir/static_list.c.obj.d"
+  "C:/Users/Particular/Downloads/Anton/PRO2/PRO2_Pract1-main/test.c" "CMakeFiles/test_lists.dir/test.c.obj" "gcc" "CMakeFiles/test_lists.dir/test.c.obj.d"
   )
 
 # Targets to which this target links.

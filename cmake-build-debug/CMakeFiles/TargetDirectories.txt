@@ -1,4 +1,4 @@
-C:/Users/Antón López Nóñez/Documents/GitHub/PRO2_Pract1/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Antón López Nóñez/Documents/GitHub/PRO2_Pract1/cmake-build-debug/CMakeFiles/main.dir
-C:/Users/Antón López Nóñez/Documents/GitHub/PRO2_Pract1/cmake-build-debug/CMakeFiles/test_lists.dir
-C:/Users/Antón López Nóñez/Documents/GitHub/PRO2_Pract1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Particular/Downloads/Anton/PRO2/PRO2_Pract1-main/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Particular/Downloads/Anton/PRO2/PRO2_Pract1-main/cmake-build-debug/CMakeFiles/main.dir
+C:/Users/Particular/Downloads/Anton/PRO2/PRO2_Pract1-main/cmake-build-debug/CMakeFiles/test_lists.dir
+C:/Users/Particular/Downloads/Anton/PRO2/PRO2_Pract1-main/cmake-build-debug/CMakeFiles/rebuild_cache.dir

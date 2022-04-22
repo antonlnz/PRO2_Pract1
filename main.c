@@ -68,7 +68,6 @@ void bid (char *position, char *param2, char *preciopuja, tList *L);
  Precondiciones: La lista está inicializada y Position es una posicion valida de la lista
  */
 
-
 void new (char *param1, char *param2, char *param3, char *param4, tList *L) { //Cabecera de la función. Recibe el identificador del nuevo producto (param1), el vendedor del producto (param2), la categoría (param3) y el precio (param4)
     tItemL newItem;
 
@@ -90,7 +89,6 @@ void new (char *param1, char *param2, char *param3, char *param4, tList *L) { //
         insertItem (newItem, LNULL, L);//Insertamos el tItemL d con los valores correspondientes en la lista
     }
 }
-
 void stats (tList L) { //Cabecera de la función. Solo recibe la lista y no la va a modificar, solo a leerla
     tPosL i; //Creamos una variable tipo tPosL para recorrer la lista
     int countBook = 0, countPainting = 0; //countBook = contador numero de productos tipo book, countPainting = contador numero de productos tipo painting
@@ -144,29 +142,12 @@ void delete (char *position, tList *L) { //Cabecera de la función. Recibe la po
         deleteAtPosition(p, L); //Lo eliminamos (la funcion deleteAtPosition tambien se encarga de liberar la memoria)
     }
 }
-
 void bid (char *position, char *param2, char *preciopuja, tList *L) { //Cabecera de la funcion bid que recibe: posicion del elemento, pujador, precio de la puja, la lista a la que accede
-    /*
-    if (r == LNULL) {
-        printf("+ Error: Bid not possible");
-    } else {
-        tItemL bidItem = getItem (r,*L);
-        if ( (bidItem.productPrice >= price) || (strcmp(bidItem.seller, param2) == 0)) {
-            printf("+ Error: Bid not possible");
-        } else {
-            bidItem.productPrice = price;
-            bidItem.bidCounter = bidItem.bidCounter + 1;
-            updateItem (bidItem, r ,L);
-            if (bidItem.productCategory == book) {
-                printf("* Bid: product %s seller %s category book prize %.2f bids %d\n", bidItem.productId, bidItem.seller, bidItem.productPrice, bidItem.bidCounter);
-            } else {
-                printf("* Bid: product %s seller %s category painting prize %.2f bids %d\n", bidItem.productId, bidItem.seller, bidItem.productPrice, bidItem.bidCounter);
-            }
-        }
-    } */
     tPosL r = findItem(position, *L);
     float price = atof (preciopuja); //Ccreamos una variable tipo float para el precio convertimos param4 (char) en un float y lo asignamos a la variable precio
+
     printf("B: product %s bidder %s price %.2f\n", position, param2, price); //Imprimimos la cabecera de la funcion
+
     tItemL bidItem = getItem(r, *L); // Buscamos el item a modificar en la posicion dada (devuelve una copia del item)
 
     if ( (r == LNULL) || (strcmp(bidItem.seller, param2) == 0) || (bidItem.productPrice >= price))  { //Si el vendedor del producto es el
@@ -183,6 +164,7 @@ void bid (char *position, char *param2, char *preciopuja, tList *L) { //Cabecera
         }
     }
 }
+
 void processCommand(char *commandNumber, char command, char *param1, char *param2, char *param3, char *param4, tList *L) {
     printf("********************\n");
     printf("%s ", commandNumber);
@@ -197,7 +179,7 @@ void processCommand(char *commandNumber, char command, char *param1, char *param
             break;
         case 'B':
             //printf("B: product %s bidder %s price %s\n", param1, param2, param4); //Imprimimos la cabecera de la funcion
-            bid (param1, param2, param4, L); //Llamamos a la funcion bid, enviandole los parametros que necesita
+            bid(param1, param2, param4, L); //Llamamos a la funcion bid, enviandole los parametros que necesita
             break;
         case 'D':
             printf("D: product %s\n", param1); //Imprimimos la cabecera de la funcion
@@ -236,7 +218,6 @@ void readTasks(char *filename, tList *L) {
         printf("Cannot open file %s.\n", filename);
     }
 }
-
 
 int main(int nargs, char **args) {
 
